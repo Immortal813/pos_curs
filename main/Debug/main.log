@@ -1,4 +1,4 @@
 ﻿  main.cpp
-C:\Rost\Project19\sec_window\main\main.cpp(86,9): warning C4101: y: неиспользованная локальная переменная
-C:\Rost\Project19\sec_window\main\main.cpp(86,6): warning C4101: x: неиспользованная локальная переменная
+C:\Rost\Project19\sec_window\main\main.cpp(87,9): warning C4101: y: неиспользованная локальная переменная
+C:\Rost\Project19\sec_window\main\main.cpp(87,6): warning C4101: x: неиспользованная локальная переменная
   main.vcxproj -> C:\Rost\Project19\sec_window\Debug\main.exe

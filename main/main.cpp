@@ -83,15 +83,15 @@ int WINAPI wWinMain( _In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 	RegisterClass( &wc );
 
 	//======
-	int wHeight = 100;
+	int wHeight = 100; // Размер окна 
 	int x, y;
 	POINT pt;
 	//======
-	
-	HWND hWnd = CreateWindowEx(0, CLASS_NAME, NULL, NULL, NULL, NULL, wHeight, wHeight, NULL, NULL, hInstance, NULL );
+
+	HWND hWnd = CreateWindowEx( 0, CLASS_NAME, NULL, NULL, NULL, NULL, wHeight, wHeight, NULL, NULL, hInstance, NULL );
 
 	if ( hWnd == NULL ) {
-	
+
 		MessageBox( hWnd, TEXT( "hWnd = LOL" ), TEXT( "Error" ), MB_OK | MB_ICONSTOP );
 		return 0;
 
@@ -101,11 +101,14 @@ int WINAPI wWinMain( _In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 	MSG msg = {};
 
 	std::string str;
+	LPRECT lpRect = {"fdsfd"}; // КАк это блять работает ?*?**
 	while ( GetMessage( &msg, NULL, 0, 0 ) > 0 ) {
 		
+		GetClientRect( hWnd, lpRect );
 
+		
+		
 		GetCursorPos( &pt );
-
 		SetWindowPos( hWnd, HWND_TOPMOST, pt.x+10, pt.y, NULL, NULL, NULL );
 
 		//TranslateMessage( &msg );
@@ -117,6 +120,8 @@ int WINAPI wWinMain( _In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 	
 	return 0;
 }
+
+
 
 //===============
 LRESULT CALLBACK WindowProc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
@@ -138,8 +143,10 @@ LRESULT CALLBACK WindowProc( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam 
 
 		EndPaint( hwnd, &ps );
 	}
+
 	return 0;
 
 	}
 	return DefWindowProc( hwnd, uMsg, wParam, lParam );
+
 }
